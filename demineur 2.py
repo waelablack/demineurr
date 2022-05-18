@@ -55,42 +55,42 @@ for ligne in carte:
     print (ligne)
     
    
-##----- Importation des Modules -----##
+
 from tkinter import *
 
-##----- Variables globales -----##
-c = 50                          # Longueur d'un côté d'une case
-longueur = 10                   # Nombre de cases par ligne et par colonne
-largeur = 10
-cases = []                      # Liste contenant les objets cases
 
-##----- Création de la fenêtre -----##
+c = 50                         
+longueur = 10                   
+largeur = 10
+cases = []                      
+
+
 
     
 fen = Tk()
 fen.title('Démineur')
 
 
-##----- Création des boutons -----##
+
 bouton_quitter = Button(fen, text='Quitter', command=fen.destroy)
 bouton_quitter.grid(row = 1, column = 1, sticky=W+E, padx=3, pady=3)
 bouton = tkinter.Button (text = "Quitter") 
     
-##----- Création des canevas -----##
+
 dessin = Canvas(fen, width = largeur*c+2, height = longueur*c+2, bg = 'white')
 dessin.grid(row = 0, column = 0, columnspan=2, padx=3, pady=3)
 
-##----- Création des figures -----##
-for ligne in range(longueur):          # Les cases de chaque ligne seront stockées dans "transit"
+
+for ligne in range(longueur):          
     transit=[]
-    for colonne in range(largeur):    # Conception des cases d'une ligne
+    for colonne in range(largeur):   
         transit.append(dessin.create_rectangle(colonne*c+2, ligne*c+2, (colonne+1)*c+2, (ligne+1)*c+2))
         
         
 
-    cases.append(transit)       # Ajout de la ligne à la liste principale
+    cases.append(transit)      
 
-##----- Modification des figures créées -----##
+
 for ligne in range(longueur):
     for colonne in range(largeur):
         if carte[ligne][colonne] == 'X':      
@@ -101,8 +101,8 @@ for ligne in range(longueur):
 
  
 
-##----- Programme principal -----##
-fen.mainloop()                  # Boucle d'attente des événements
+
+fen.mainloop()                  
     
     
 
